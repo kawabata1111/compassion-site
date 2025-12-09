@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 w-full px-6 md:px-12 py-6 flex justify-between items-start z-50 text-white transition-all duration-500 ${mobileMenuOpen ? 'bg-charcoal mix-blend-normal' : 'mix-blend-difference'}`}
+      className={`fixed top-0 left-0 w-full px-6 md:px-12 py-6 flex justify-between items-start z-50 text-charcoal transition-all duration-500 ${mobileMenuOpen ? 'bg-charcoal text-white' : ''}`}
     >
       <div>
          <Link to="/" className="flex items-center gap-3 group cursor-scale">
@@ -55,10 +55,10 @@ export const Header: React.FC = () => {
             <Link 
               key={link.name} 
               to={link.path} 
-              className={`text-[10px] uppercase tracking-[0.2em] transition-colors relative group cursor-scale ${location.pathname === link.path ? 'text-white' : 'text-gray-300 hover:text-white'}`}
+              className={`text-[10px] uppercase tracking-[0.2em] transition-colors relative group cursor-scale ${location.pathname === link.path ? 'text-charcoal' : 'text-gray-500 hover:text-charcoal'}`}
             >
               <span className="relative z-10">{link.name}</span>
-              <span className={`absolute -bottom-2 left-0 h-[1px] bg-white transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+              <span className={`absolute -bottom-2 left-0 h-[1px] bg-charcoal transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
           ))}
         </div>
@@ -72,12 +72,12 @@ export const Header: React.FC = () => {
         <motion.div
           animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="w-8 h-[1px] bg-white mb-2"
+          className={`w-8 h-[1px] mb-2 ${mobileMenuOpen ? 'bg-white' : 'bg-charcoal'}`}
         />
         <motion.div
           animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="w-8 h-[1px] bg-white"
+          className={`w-8 h-[1px] ${mobileMenuOpen ? 'bg-white' : 'bg-charcoal'}`}
         />
       </div>
 
