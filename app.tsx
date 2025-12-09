@@ -1,11 +1,11 @@
 import React from 'react';
-import { CustomCursor } from './components/CustomCursor';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { Home } from './pages/Home';
-import { Philosophy } from './pages/Philosophy';
-import { ServicesPage } from './pages/Services';
-import { Company } from './pages/Company';
+import { CustomCursor } from './components/customcursor';
+import { Header } from './components/header';
+import { Footer } from './components/footer';
+import { Home } from './pages/home';
+import { Philosophy } from './pages/philosophy';
+import { ServicesPage } from './pages/services';
+import { Company } from './pages/company';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 

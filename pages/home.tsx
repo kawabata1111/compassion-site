@@ -1,7 +1,7 @@
 import React from 'react';
-import { Hero } from '../components/Hero';
-import { Vision } from '../components/Vision';
-import { Services } from '../components/Services';
+import { Hero } from '../components/hero';
+import { Vision } from '../components/vision';
+import { Services } from '../components/services';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 

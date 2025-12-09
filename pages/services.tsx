@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PageHero } from '../components/PageHero';
+import { PageHero } from '../components/pagehero';
 import { Check } from 'lucide-react';
 
 export const ServicesPage: React.FC = () => {
