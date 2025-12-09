@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100">
+  <defs>
+    <style>
+      .text-main { font-family: 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Blue C (top-left, opening to right) -->
+  <path d="M 42 20
+           A 28 28 0 1 0 42 68
+           L 42 56
+           A 16 16 0 1 1 42 32
+           Z" fill="#1E6BB8"/>
+
+  <!-- Orange C (bottom-right, opening to left, rotated 180deg conceptually) -->
+  <path d="M 58 32
+           A 28 28 0 1 1 58 80
+           L 58 68
+           A 16 16 0 1 0 58 44
+           Z" fill="#F5A830"/>
+
+  <!-- Overlap: Navy/Dark blue intersection -->
+  <ellipse cx="50" cy="50" rx="8" ry="12" fill="#1A2D5A" opacity="0.9"/>
+
+  <!-- Brown/Bronze overlap hint -->
+  <ellipse cx="54" cy="46" rx="5" ry="6" fill="#B8863B" opacity="0.6"/>
+
+  <!-- Text: compassion -->
+  <text x="100" y="42" class="text-main" fill="#1A2D5A" font-size="26" letter-spacing="0.3">compassion</text>
+
+  <!-- Text: consulting (slightly indented) -->
+  <text x="125" y="70" class="text-main" fill="#1A2D5A" font-size="20" letter-spacing="1.5">consulting</text>
+</svg>
