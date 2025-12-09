@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
             <Link 
               key={link.name} 
               to={link.path} 
-              className={`text-[10px] uppercase tracking-[0.2em] transition-colors relative group cursor-scale ${location.pathname === link.path ? 'text-charcoal' : 'text-gray-500 hover:text-charcoal'}`}
+              className={`text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors relative group cursor-scale ${location.pathname === link.path ? 'text-black' : 'text-gray-700 hover:text-black'}`}
             >
               <span className="relative z-10">{link.name}</span>
               <span className={`absolute -bottom-2 left-0 h-[1px] bg-charcoal transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`} />

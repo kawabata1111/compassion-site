@@ -33,8 +33,7 @@ export const Footer: React.FC = () => {
            <div>
              <span className="text-[10px] uppercase tracking-[0.3em] text-gold-accent block mb-12">Contact Us</span>
              <p className="font-serif text-2xl md:text-3xl leading-relaxed mb-12 text-gray-200">
-               人生設計に寄り添う伴走型の<br/>
-               生涯アドバイザーを目指して。
+               人生設計に寄り添う伴走型の生涯アドバイザーを目指して。
              </p>
            </div>
            
