@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>compassion consulting Inc. | 利よりも義を</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@200;300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Noto Serif JP"', 'Italiana', 'serif'],
+              sans: ['"Manrope"', '"Noto Sans JP"', 'sans-serif'],
+            },
+            colors: {
+              'off-white': '#F9F9F9',
+              'paper': '#F5F5F0',
+              'smoke': '#EAEAEA',
+              'charcoal': '#111111',
+              'ink': '#050505',
+              'gold-accent': '#C5A059',
+            },
+            animation: {
+              'blob': 'blob 20s infinite',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F9F9F9;
+        color: #111111;
+        cursor: auto;
+        overflow-x: hidden;
+      }
+      ::selection {
+        background: #111111;
+        color: #F9F9F9;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #111111;
+      }
+      
+      /* Vertical writing mode util */
+      .writing-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+      }
+
+      /* Noise Texture for Film/Paper look */
+      .noise-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@6.22.3",
+    "@remix-run/router": "https://aistudiocdn.com/@remix-run/router@1.15.3",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-79Vs18bX.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="noise-overlay"></div>
+    <style>
+      /* 代表者プロフィール画像のスタイル */
+      .profile-image-container {
+        width: 100% !important;
+        height: 450px !important;
+        min-height: 450px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%) !important;
+      }
+      .profile-image-container img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+        filter: grayscale(10%) !important;
+        transition: all 0.5s ease !important;
+      }
+      .profile-image-container:hover img {
+        filter: grayscale(0%) !important;
+        transform: scale(1.02) !important;
+      }
+      @media (max-width: 768px) {
+        .profile-image-container {
+          height: 350px !important;
+          min-height: 350px !important;
+        }
+      }
+
+      /* ページヒーロー背景画像 */
+      .page-hero-with-bg {
+        position: relative !important;
+      }
+      .page-hero-with-bg::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.15 !important;
+        z-index: 0 !important;
+      }
+      .page-hero-with-bg > * {
+        position: relative !important;
+        z-index: 1 !important;
+      }
+
+      /* トップページヒーローセクション背景 */
+      .hero-section-bg {
+        position: relative !important;
+      }
+      .hero-section-bg::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 45% !important;
+        height: 100% !important;
+        background-image: url('/hero-bg.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.12 !important;
+        z-index: 0 !important;
+        mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%) !important;
+        -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%) !important;
+      }
+
+      /* Visionセクションの装飾画像 */
+      .vision-image-accent {
+        position: absolute !important;
+        top: 50% !important;
+        right: -5% !important;
+        transform: translateY(-50%) !important;
+        width: 400px !important;
+        height: 500px !important;
+        background-image: url('/philosophy-bg.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.08 !important;
+        z-index: 0 !important;
+        border-radius: 4px !important;
+      }
+
+      /* Servicesページヒーロー */
+      .services-hero-bg::before {
+        background-image: url('/services-bg.jpg') !important;
+      }
+
+      /* Philosophyページヒーロー */
+      .philosophy-hero-bg::before {
+        background-image: url('/philosophy-bg.jpg') !important;
+      }
+
+      /* Companyページヒーロー */
+      .company-hero-bg::before {
+        background-image: url('/company-hero.jpg') !important;
+      }
+
+
+      /* セクション区切りの装飾 */
+      .section-divider-image {
+        width: 100% !important;
+        height: 300px !important;
+        background-image: url('/section-bg.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.1 !important;
+      }
+
+      /* フッター上部の装飾バー */
+      .footer-accent-bar {
+        width: 100% !important;
+        height: 4px !important;
+        background: linear-gradient(90deg, transparent 0%, #C5A059 50%, transparent 100%) !important;
+        opacity: 0.6 !important;
+      }
+
+      /* ヘッダーのconsultingテキストを小文字に強制 */
+      header a span.uppercase,
+      header a span[class*="uppercase"],
+      header span.uppercase {
+        text-transform: lowercase !important;
+      }
+
+      /* ヘッダー全体のmix-blend-modeを無効化 */
+      header {
+        mix-blend-mode: normal !important;
+      }
+
+      /* ヘッダーのロゴ横テキストを非表示 */
+      header a > div.flex.flex-col,
+      header a .font-serif.tracking-widest {
+        display: none !important;
+      }
+
+      /* ロゴコンテナ全体のスタイル */
+      .logo-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        background-color: white !important;
+        padding: 8px 14px 8px 14px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+      }
+
+      .logo-container img {
+        height: 55px !important;
+        width: auto !important;
+        mix-blend-mode: normal !important;
+        filter: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        margin-bottom: -8px !important;
+      }
+
+      /* consultingテキストのスタイル */
+      .logo-container .consulting-text {
+        display: block !important;
+        color: #1A2D5A !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        letter-spacing: 2.5px !important;
+        text-align: center !important;
+        margin-top: 0 !important;
+        font-family: 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif !important;
+      }
+    </style>
+    <script>
+      // 全ページ画像配置スクリプト
+      function applyAllImages() {
+        const path = window.location.hash || window.location.pathname;
+
+        // 代表者画像
+        replaceProfileImage();
+
+        // トップページのヒーローセクションに背景追加
+        const heroSection = document.querySelector('section.relative.h-screen');
+        if (heroSection && !heroSection.classList.contains('hero-section-bg')) {
+          heroSection.classList.add('hero-section-bg');
+        }
+
+        // ページヒーロー（Philosophy, Services, Company）に背景追加
+        const pageHeroes = document.querySelectorAll('section.relative.w-full');
+        pageHeroes.forEach(hero => {
+          if (hero.querySelector('h1')) {
+            const h1Text = hero.querySelector('h1')?.textContent || '';
+            hero.classList.add('page-hero-with-bg');
+
+            if (h1Text.includes('Philosophy')) {
+              hero.classList.add('philosophy-hero-bg');
+            } else if (h1Text.includes('Services')) {
+              hero.classList.add('services-hero-bg');
+            } else if (h1Text.includes('Company')) {
+              hero.classList.add('company-hero-bg');
+            }
+          }
+        });
+
+        // Visionセクション（トップページ）に装飾追加
+        const visionSection = document.querySelector('#vision');
+        if (visionSection && !visionSection.querySelector('.vision-image-accent')) {
+          const accent = document.createElement('div');
+          accent.className = 'vision-image-accent';
+          visionSection.style.position = 'relative';
+          visionSection.style.overflow = 'hidden';
+          visionSection.appendChild(accent);
+        }
+
+        // フッターに装飾バー追加
+        const footer = document.querySelector('footer');
+        if (footer && !footer.querySelector('.footer-accent-bar')) {
+          const bar = document.createElement('div');
+          bar.className = 'footer-accent-bar';
+          footer.insertBefore(bar, footer.firstChild);
+        }
+
+        // ロゴを新しいSVGに置き換え
+        replaceLogos();
+      }
+
+      // ロゴ置き換え関数
+      function replaceLogos() {
+        // ヘッダー内のロゴリンクを探して置き換え
+        const headerLinks = document.querySelectorAll('header a[href="/"], header a[href="./"]');
+        headerLinks.forEach(link => {
+          // すでに置き換え済みの場合はスキップ
+          if (link.querySelector('.logo-container')) return;
+
+          // 新しいロゴコンテナを作成
+          link.innerHTML = '<div class="logo-container"><img src="/logo-main.png" alt="compassion consulting"><span class="consulting-text">consulting</span></div>';
+        });
+      }
+
+      // 代表者画像を挿入するスクリプト（改良版）
+      function replaceProfileImage() {
+        const placeholders = document.querySelectorAll('div');
+        placeholders.forEach(div => {
+          if (div.classList.contains('h-80') && div.classList.contains('bg-gray-100')) {
+            const span = div.querySelector('span');
+            if (span && span.textContent === 'Nakagawa') {
+              let parentContainer = div.closest('.md\\:w-1\\/3');
+              if (!parentContainer) {
+                parentContainer = div.parentElement;
+              }
+              div.className = 'profile-image-container';
+              div.innerHTML = '<img src="/nakagawa.jpg" alt="中川 達也 - compassion consulting 代表取締役">';
+              if (parentContainer) {
+                parentContainer.style.minWidth = '320px';
+              }
+            }
+          }
+        });
+      }
+
+      // DOMの変更を監視
+      const observer = new MutationObserver(() => {
+        applyAllImages();
+      });
+
+      // ページ読み込み完了後に監視開始
+      window.addEventListener('load', () => {
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(applyAllImages, 100);
+        setTimeout(applyAllImages, 500);
+        setTimeout(applyAllImages, 1000);
+        setTimeout(applyAllImages, 2000);
+      });
+
+      // hashchangeでも再実行（SPAのルーティング対応）
+      window.addEventListener('hashchange', () => {
+        setTimeout(applyAllImages, 100);
+        setTimeout(applyAllImages, 500);
+      });
+
+      // popstateでも再実行
+      window.addEventListener('popstate', () => {
+        setTimeout(applyAllImages, 100);
+        setTimeout(applyAllImages, 500);
+      });
+    </script>
+  </body>
+</html>
