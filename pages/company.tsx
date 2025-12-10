@@ -31,7 +31,7 @@ export const Company: React.FC = () => {
               <h3 className="font-serif text-2xl mb-8">誠実さと寄り添う力で、<br/>人生の伴走者に。</h3>
               <div className="space-y-6 text-gray-600 font-sans leading-loose text-justify">
                  <p>
-                    2026年の設立以来、私たちは「利よりも義」を信条に、お客様一人ひとりの人生設計に深く寄り添ってまいりました。
+                    当社は「利よりも義」を信条に、お客様一人ひとりの人生設計に深く寄り添った金融コンサルティング会社になることを目指して2026年に産声を上げました。
                  </p>
                  <p>
                     金融コンサルティングの世界は、時に複雑で分かりにくいものです。だからこそ、私は「分かりやすく伝える」こと、そして「公正・中立」であることを何よりも大切にしています。バスケットボールの審判員として培った冷静な判断力と公平性は、私のビジネスにおける羅針盤でもあります。
@@ -56,7 +56,6 @@ export const Company: React.FC = () => {
                   { label: "設立", value: "2026年" },
                   { label: "所在地", value: "〒185-0012 東京都国分寺市4-1-40" },
                   { label: "事業内容", value: "金融コンサルティング、財務・会計コンサルティング、営業コンサルティング、各種セミナー開催" },
-                  { label: "従業員数", value: "1名" },
                   { label: "連絡先", value: "080-1122-7217 / nakagawa@compassion-c.com" }
                ].map((row, idx) => (
                   <div key={idx} className="flex flex-col md:flex-row py-6 border-b border-gray-200 group hover:bg-gray-50 transition-colors duration-300 px-4">
